@@ -1,0 +1,42 @@
+// Question 127: Convert a traditional function expression to an arrow function.
+
+// Traditional function expression
+function add(a: number, b: number): number {
+    return a + b;
+}
+
+// Arrow function
+const add1 = (a: number, b: number): number => {
+    return a - b;
+};
+
+// Usage
+console.log(add(2, 3));  // Output: 5
+console.log(add1(4, 2)); // output: 2
+
+// Question 128: Create an arrow function that takes multiple parameters and returns the product of all parameters.
+
+// Arrow function that takes multiple parameters and returns their product
+const multiply = (...numbers: number[]): number => {
+    return numbers.reduce((accumulator, currentValue) => accumulator * currentValue, 1);
+};
+
+// Usage example
+const result = multiply(2, 3, 4);  // Output: 24
+console.log(result);
+
+// Question 129: Explain how this behaves differently in arrow functions compared to traditional functions.
+
+// Demonstrating 'this' in traditional vs. arrow functions
+const traditionalVsArrow = {
+    value: "42",
+    traditionalFunction: function () {
+      console.log("Traditional function:", this.value); // 'this' refers to traditionalVsArrow object
+    },
+    arrowFunction: () => {
+      console.log("Arrow function:", this.value); 
+    },
+  };
+  
+  traditionalVsArrow.traditionalFunction(); // output:42
+  traditionalVsArrow.arrowFunction();   // undefined
